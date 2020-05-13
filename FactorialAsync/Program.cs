@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace FactorialAsync
 {
@@ -12,7 +13,7 @@ namespace FactorialAsync
 		}
 
 
-		public static async Task<double> Factorial(double x)
+		public static double Factorial(double x)
 		{
 			if (x < 1)
 			{
@@ -25,8 +26,14 @@ namespace FactorialAsync
 			}
 			else
 			{
-				return x * await Factorial(x - 1);
+				return x * Factorial(x - 1);
 			}
+		}
+
+
+		public static async Task GetFactorial(int x)
+		{
+			return await Factorial(x);
 		}
 
 	}
